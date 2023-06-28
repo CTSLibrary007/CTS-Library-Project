@@ -7,7 +7,8 @@
 <html lang="en">
 	<head>
 		<?php include '../Essential Kits/php/Metadata.php'; ?>
-		<link rel="stylesheet" href="signin-style.css" type="text/css" />
+		<link rel="stylesheet" href="signin-style.css" type="text/css">
+		<script src="signin-script.js" defer></script>
 		<title>Sign In to continue</title>
 	</head>
 	<body>
@@ -80,8 +81,6 @@
 			<h4 class="atext"><a class="forgot" href="">Forgot password?</a></h4>
 			<h4 class="atext"><a class="signup" href="signup.html">Don't have an account? Sign Up right now</a></h4>
 		</div>
-		<script src="signin-script.js"></script>
-		<script src="https://kit.fontawesome.com/bef3bec8c1.js" crossorigin="anonymous"></script>
 	</body>
 </html>
 <?php mysqli_close($conn); ?>

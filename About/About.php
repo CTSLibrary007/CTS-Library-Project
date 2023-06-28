@@ -11,6 +11,10 @@
     <script src="About-script.js" defer></script>
     <link rel="stylesheet" href="../Essential Kits/css/Navbar.css">
     <link rel="stylesheet" href="../Essential Kits/css/Footer-style.css">
+    <script src="../Essential Kits/js/Navbar.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+
 </head>
 <body>
     <?php
@@ -78,9 +82,7 @@
             x[slideIndex-1].style.display = "block";  
         }
     </script>
-    <script src="../Essential Kits/js/Navbar.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <?php //include '../Essential Kits/php/Session-unloader.php'; ?>
 </body>
 </html>
 <?php mysqli_close($conn); ?>

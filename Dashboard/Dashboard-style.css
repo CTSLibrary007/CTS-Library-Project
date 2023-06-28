@@ -12,6 +12,7 @@ html {
     left: 0;
     width: 85px;
     /* overflow-y: auto; */
+    overflow-x: hidden;
     height: calc(100% - 70px);
     background: var(--sidebar-background-color);
     transition: all .5s ease;

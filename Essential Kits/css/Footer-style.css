@@ -151,9 +151,6 @@ footer>.container ul>li:not(.service_name) {
 	.service_area {
 		align-self: stretch;
 	}
-	#calendar-outline {
-		font-size:1.5em;
-	}
 }
 
 @media only screen and (max-width: 926px) {  /* For medium screens */
