@@ -190,7 +190,6 @@
     <script src="../Essential Kits/js/Navbar.js"></script>
     <?php include 'suggestions.php'; ?>
     <script src="Searchbook-script.js"></script>
-    <!-- <script src="https://kit.fontawesome.com/bef3bec8c1.js" crossorigin="anonymous"></script> -->
 </body>
 
 </html>

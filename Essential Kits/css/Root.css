@@ -30,6 +30,7 @@
     --pink-light-rgb: 206, 100, 164;
     --blue-text-color: hsl(189, 100%, 50%);
     --unimportant-text-color: hsl(180, 2%, 80%);
+    scrollbar-color: hsl(323.9, 52.2%, 60%) #1e1e24;
 }
 
 .light-theme {
@@ -76,13 +77,17 @@ ul {
     list-style: none;
 }
 
-body::-webkit-scrollbar {
-    width: 0.025rem;
+::-webkit-scrollbar {
+    width: 0.5rem;
 }
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #1e1e24;
+    /* background: transparent; */
 }
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: -webkit-gradient(linear, left top, left bottom, from(hsl(212, 73%, 60%)), to(hsl(323.9, 52.2%, 60%)));
     background: linear-gradient(hsl(212, 73%, 60%), hsl(323.9, 52.2%, 60%));
+    border-radius: 30px;
+    border: 2px solid transparent;
+    background-clip: content-box;
 }

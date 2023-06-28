@@ -157,9 +157,6 @@
         </div>
     </div>
 </section>
-<section id="book-management">
-    <h2>Books (<?php echo mysqli_num_rows($conn -> query("SELECT * FROM books")); ?>)</h2>
-</section>
 <section id="notification">
     <h2>Notification Page</h2>
     <div id="notification-area">

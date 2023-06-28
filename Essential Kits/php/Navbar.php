@@ -65,11 +65,20 @@
                 <?php
                         }
                         else {
+                            if($_SESSION['role'] == 'admin') {
+                ?>
+                <li class="minoption-optionlist-options">
+                    <a href="../Manage Books/Managebooks.php"><ion-icon name="book" style="margin-bottom: -4.2px; font-size: 1.35rem;"></ion-icon>Manage Books</a>
+                </li>
+                <?php
+                            }
+                            else {
                 ?>
                 <li class="minoption-optionlist-options">
                     <a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
                 </li>
                 <?php
+                            }
                         }
                     }
                 ?>
@@ -135,11 +144,20 @@
         <?php
                 }
                 else {
+                    if($_SESSION['role'] == 'admin') {
+        ?>
+        <li class="option">
+            <a href="../Manage Books/Managebooks.php"><ion-icon name="book" style="margin-bottom: -4.2px; font-size: 1.35rem;"></ion-icon>Manage Books</a>
+        </li>
+        <?php
+                    }
+                    else {
         ?>
         <li class="option">
             <a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
         </li>
         <?php
+                    }
                 }
             }
         ?>
@@ -148,6 +166,8 @@
             <a class="show-contactus"><span class="fa fa-address-card"></span>Contact Us</a>
         </li>
         
+        <!-- For medium screens -->
+
         <li id="option" class="option-btns">
             <span class="fa-solid fa-caret-down"></span>
             <ul class="sublist">
@@ -199,11 +219,20 @@
                 <?php
                         }
                         else {
+                            if($_SESSION['role'] == 'admin') {
+                ?>
+                <li class="suboption">
+                    <a href="../Manage Books/Managebooks.php"><ion-icon name="book" style="margin-bottom: -4.2px; font-size: 1.3rem;"></ion-icon>Manage Books</a>
+                </li>
+                <?php
+                            }
+                            else {
                 ?>
                 <li class="suboption">
                     <a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
                 </li>
                 <?php
+                            }
                         }
                     }
                 ?>
@@ -213,6 +242,8 @@
             </ul>
         </li>
         
+        <!-- End of medium screens -->
+
         <li class="option-btns">
             <span id="light-icon" class="icon"><ion-icon name="sunny"></ion-icon></span><span id="dark-icon" class="fa-solid fa-moon"></span>
         </li>

@@ -20,13 +20,13 @@
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     /* speak: never; */
-    font-style: normal;
+    /* font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
+    line-height: 1; */
   
-    /* Better Font Rendering =========== */
+    /* Better Font Rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -108,8 +108,8 @@ nav > ul > .option-btns ~ .option-btns  {
 }
 
 
-.option span,
-nav > ul > li:last-child span {
+nav > ul > li:last-child span,
+.option > a > *:first-child {
     margin-right: 8px;
 }
 
@@ -225,7 +225,7 @@ nav > ul > li:last-child span {
     .sublist > li:last-child {
         padding-bottom: 20px;
     }
-    .sublist > li > a > span {
+    .sublist > li > a > *:first-child {
         margin-right: 8px;
     }
     .show {
@@ -300,7 +300,8 @@ nav > ul > li:last-child span {
     #minoption-optionlist > li:last-child {
         padding-bottom: 20px;
     }
-    #minoption-optionlist > li span {
+    #minoption-optionlist > li > a > *:first-child,
+    #minoption-optionlist > li > div > *:first-child {
     margin-right: 12px;
     width: 20.7px;
     }
