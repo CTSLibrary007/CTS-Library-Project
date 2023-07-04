@@ -39,6 +39,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`Name`, `Username`, `Password`) VALUES
 ('Arko', 'arkokundu@#1234', '1a1dc91c907325c69271ddf0c944bc72'),
+('AD', 'adey@#100', 'ctsadmin1234'),
 ('Swastik', 'kookaswas@#1234', '1a1dc91c907325c69271ddf0c944bc72');
 
 -- --------------------------------------------------------
