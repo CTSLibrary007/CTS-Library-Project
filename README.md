@@ -1,4 +1,4 @@
-**Live link of froject:**
+**Live link of project:**
 https://cts-library.free.nf
 
 # CTS-Library-Project
