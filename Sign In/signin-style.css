@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 body {
     background: no-repeat center/100% rgba(0,0,0,0.75) url("../Essential Kits/pic/background.jpeg");
@@ -24,12 +24,14 @@ body {
     color : rgb(52, 190, 245);
     text-align: center;
     margin-bottom: 12px;
+	font-family: "Patua One", "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .text {
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 15px;
+    font-weight: initial;
 }
 .form-page {
     display: grid;
@@ -41,14 +43,41 @@ body {
     justify-content: center;
     width: 100%;
 }
-.form-page-children:nth-child(1),
-.form-page-children:nth-child(2) {
+.form-page-children.select {
+    flex-direction: column;
+}
+.form-page-children.select > select {
+    width: 73.64%;
+    padding: 10px;
+    text-align: center;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px #111;
+    background: #fff;
+    height: 49.6px;
+	transition: all 0.3s;
+	font-size: 22px;
+}
+.form-page-children.select option {
+	font-size: 16px;
+    background: #fff !important;
+}
+.form-page-children.select > select:hover,
+.form-page-children.select > select:valid {
+    box-shadow: inset 0px 0px 3px #111;
+    background: #eee;
+}
+.form-page-children.select > option > span {
+    font-family: "Font Awesome";
+}
+.form-page-children.input,
+.form-page-children.select {
     height: 60px;
 }
-.form-page-children:nth-last-child(1),
-.form-page-children:nth-last-child(2) {
+.form-page-children.submit {
     height: 50px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .textbox label {
     height: inherit;
@@ -70,7 +99,7 @@ span.fa-key {
     display: flex;
     gap: 2px;
     border: 1px solid black;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     border-radius: 25px;
     height: 28px;
     width: 28px;
@@ -85,7 +114,6 @@ span.fa-key {
     margin-bottom: -1px;
     margin-left: 3px;
     width: 80%;
-    /* height: inherit; */
     transition: 0.5s;
     border: none;
     font-size: 22px;
@@ -114,28 +142,30 @@ span.fa-key {
     outline: none;
 }
 
-input[type="submit"] {
+button[type="submit"] {
     height: 40px;
     padding: 10px 20px;
     font-size: 16px;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
-    background: linear-gradient(90deg, rgb(51,153,255), rgb(120, 204, 255));
+    background: linear-gradient(45deg, hsl(212, 73%, 60%), hsl(324, 52%, 60%));
     outline: none;
     transition: 0.5s;
     transform: scale(1);
 }
-input[type='submit']:hover {
+button[type='submit']:hover {
     transform: scale(1.01);
     transition: 0.5s;
     font-size: 18px;
-    box-shadow: 0px 2.5px 8px 2px rgb(91, 189, 246);
+    box-shadow: 0px 2.5px 8px 2px hsl(212, 73%, 60%);
 }
 .atext {
     font-size: 15px;
     margin-top: 10px;
     margin-bottom: 6px;
+    font-weight: initial;
+
 }
 a {
     color: #000;

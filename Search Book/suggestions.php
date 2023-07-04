@@ -21,5 +21,4 @@
 			}
 		?>
 	]));
-	console.log(<?php echo '"'.md5("password").'"' ?>);    //Checking the md5 encryption of password
 </script>

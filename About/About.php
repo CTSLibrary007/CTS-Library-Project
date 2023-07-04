@@ -9,8 +9,6 @@
     <title>CTS Library</title>
     <link rel="stylesheet" href="About-style.css">
     <script src="About-script.js" defer></script>
-    <link rel="stylesheet" href="../Essential Kits/css/Navbar.css">
-    <link rel="stylesheet" href="../Essential Kits/css/Footer-style.css">
     <script src="../Essential Kits/js/Navbar.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>

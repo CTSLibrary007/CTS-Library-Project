@@ -14,7 +14,6 @@
 
 <head>
     <?php include '../Essential Kits/php/Metadata.php'; ?>
-    <link rel="stylesheet" href="../Essential Kits/css/Navbar.css">
     <link rel="stylesheet" href="../Essential Kits/css/Search Results.css">
     <link rel="stylesheet" href="Searchbook-style.css">
     <title>Search Books</title>
@@ -47,7 +46,7 @@
                     else {
                         if(isset($_GET['s']) and $_GET['s']!='') {
                             $key = $_GET['s'];
-                            $q="select * from Books where (Title like '%$key%' or Author like '%$key%' or Publisher like '%$key%') and Status='Available' order by Title";
+                            $q="select * from books where (Title like '%$key%' or Author like '%$key%' or Publisher like '%$key%') and Status='Available' order by Title";
                         }
                         else {
                             $q="select * from books where Status='Available' order by Title";
@@ -187,9 +186,12 @@
             </div>
         </div>
     </div>
+    <?php include '../Essential Kits/php/Footer.php'; ?>
     <script src="../Essential Kits/js/Navbar.js"></script>
     <?php include 'suggestions.php'; ?>
     <script src="Searchbook-script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

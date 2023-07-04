@@ -63,7 +63,6 @@
 <head>
     <?php include '../Essential Kits/php/Metadata.php'; ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../Essential Kits/css/Navbar.css">
     <link rel="stylesheet" href="../Essential Kits/css/Search Results.css">
     <link rel="stylesheet" href="./Dashboard-style.css">
 	
@@ -76,7 +75,6 @@
 		}
 	?>
     
-	<link rel="stylesheet" href="../Essential Kits/css/Footer-style.css">
 	<script src="../Essential Kits/js/Navbar.js" defer></script>
     <script src="Dashboard-script.js" defer></script>
 	
