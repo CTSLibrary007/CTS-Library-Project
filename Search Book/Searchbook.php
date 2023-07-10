@@ -6,7 +6,7 @@
         $dquery = mysqli_query($conn,$dq);
         $dq="UPDATE books SET Status = 'Demanded' WHERE AccNo = ".$_GET['demand'];
         $dquery = mysqli_query($conn,$dq);
-        header('location:Searchbook.php');
+        header('location:../Dashboard/Dashboard.php#demanded-books');
     }
 ?>
 <!DOCTYPE html>
@@ -20,6 +20,7 @@
 </head>
 
 <body>
+	<script src="../Essential Kits/js/document-loader-script.js"></script>
     <?php
         $searchflag=1;
         include '../Essential Kits/php/Navbar.php';
@@ -95,6 +96,9 @@
                                 <button onclick="window.location = ('../Search Book/Searchbook.php?demand=<?php echo $bookinfo['AccNo']; ?>')" class="search-results-bookinfo-optionset-btn green">
                                     Add to Demand List
                                 </button>
+                                <button class="search-results-bookinfo-optionset-btn gray">
+									Close box
+								</button>
                             </div>
                             <?php
                                             }
@@ -146,6 +150,9 @@
                                 <button onclick="window.location = ('../Search Book/Searchbook.php?demand=<?php echo $bookinfo['AccNo']; ?>')" class="search-results-bookinfo-optionset-btn green">
                                     Add to Demand List
                                 </button>
+                                <button class="search-results-bookinfo-optionset-btn gray">
+									Close box
+								</button>
                             </div>
                             <?php
                                     }

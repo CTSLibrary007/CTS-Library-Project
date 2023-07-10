@@ -76,6 +76,7 @@
     cursor: pointer;
     user-select: none;
     transition: all 0.2s;
+    background: var(--dark-gradient-color-45deg);
 }
 #close-modal:hover {
     transform: scale(1.08);
@@ -107,7 +108,7 @@
     text-align: center;
 }
 .mycard-college-name {
-    color: rgb(34, 173, 178);
+    color: #782828;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.8em;

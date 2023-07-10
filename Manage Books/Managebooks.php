@@ -13,6 +13,7 @@
     <title>Manage Books</title>
 </head>
 <body>
+	<script src="../Essential Kits/js/document-loader-script.js"></script>
     
 </body>
 </html>

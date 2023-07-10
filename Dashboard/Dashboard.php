@@ -9,22 +9,21 @@
 			if($dopt == "del") {
 				$conn -> query("DELETE FROM demand WHERE AccNo = '$did'");
 				$conn -> query("UPDATE books SET Status = 'Available' WHERE AccNo = '$did'");
-				header('location:Dashboard.php');
+				header('location:Dashboard.php#demanded-books');
 			}
 			if($dopt == "borr") {
 				$conn -> query("DELETE FROM demand WHERE AccNo = '$did'");
 				$conn -> query("INSERT INTO borrowed (LibID, AccNo, `Group`) VALUES ('".$_SESSION['user']."', '$did', '".$_SESSION['group']."')");
 				$conn -> query("UPDATE books SET Status = 'Borrowed' WHERE AccNo = '$did'");
-				header('location:Dashboard.php');
+				header('location:Dashboard.php#demanded-books');
 			}
 		}
 		if(isset($_GET['bid']) and isset($_GET['bopt'])) {
 			$bid = $_GET['bid'];
 			$bopt = $_GET['bopt'];
 			if($bopt == "ret") {
-				$conn -> query("DELETE FROM borrowed WHERE AccNo = '$bid'");
-				$conn -> query("UPDATE books SET Status = 'Available' WHERE AccNo = '$bid'");
-				header('location:Dashboard.php');
+				$conn -> query("UPDATE borrowed SET Check_Status = 'Return Approval' WHERE AccNo = '$bid'");
+				header('location:Dashboard.php#borrowed-books');
 			}
 		}
 	}
@@ -35,11 +34,11 @@
 			if($dopt == "del") {
 				$conn -> query("DELETE FROM demand WHERE AccNo = '$did'");
 				$conn -> query("UPDATE books SET Status = 'Available' WHERE AccNo = '$did'");
-				header('location:Dashboard.php');
+				header('location:Dashboard.php#request');
 			}
 			if($dopt == "con") {
 				$conn -> query("UPDATE demand SET Check_Status = 'Verified' WHERE AccNo = '$did'");
-				header('location:Dashboard.php');
+				header('location:Dashboard.php#request');
 			}
 		}
 		if(isset($_GET['bid']) and isset($_GET['bopt'])) {
@@ -48,11 +47,11 @@
 			if($bopt == "del") {
 				$conn -> query("DELETE FROM borrowed WHERE AccNo = '$bid'");
 				$conn -> query("UPDATE books SET Status = 'Available' WHERE AccNo = '$bid'");
-				header('location:Dashboard.php');
+				header('location:Dashboard.php#request');
 			}
 			if($bopt == "issue") {
-				$conn -> query("UPDATE borrowed SET BorrDt = CURRENT_TIMESTAMP(), Check_Status = 'Borrowed' WHERE AccNo = '$bid'");
-				header('location:Dashboard.php');
+				$conn -> query("UPDATE borrowed SET Check_Status = 'Borrowed' WHERE AccNo = '$bid'");
+				header('location:Dashboard.php#request');
 			}
 		}
 	}
@@ -95,6 +94,7 @@
 </head>
 
 <body>
+	<script src="../Essential Kits/js/document-loader-script.js"></script>
     <?php
         include '../Essential Kits/php/Navbar.php';
     ?>
@@ -108,21 +108,21 @@
 					if ($_SESSION['role'] == 'student') {
 				?>
 				<li class="sideopt active">
-					<a href="#home">
+					<a href="#home" title="Home">
 						<b></b><b></b>
 						<span class="fa fa-home"></span>
 						<div class="sideopt-text">Home</div>
 					</a>
 				</li>
 				<li class="sideopt">
-					<a href="#demanded-books">
+					<a href="#demanded-books" title="Demanded Books">
 						<b></b><b></b>
 						<span class="fa fa-book"></span>
 						<div class="sideopt-text">Demanded Books</div>
 					</a>
 				</li>
 				<li class="sideopt">
-					<a href="#borrowed-books">
+					<a href="#borrowed-books" title="Borrowed Books">
 						<b></b><b></b>
 						<span class="fa fa-book"></span>
 						<div class="sideopt-text">Borrowed Books</div>
@@ -133,36 +133,41 @@
 					else {
 				?>
 				<li class="sideopt active">
-					<a href="#home">
+					<a href="#home" title="Home">
 						<b></b><b></b>
 						<span class="icon" style = "width: auto; padding-top: 3px;">
-							<ion-icon name="home"></ion-icon>
+							<ion-icon name="home" title=""></ion-icon>
 						</span>
 						<div class="sideopt-text">Home</div>
 					</a>
 				</li>
 				<li class="sideopt">
-					<a href="#request">
+					<a href="#request" title="Requests">
 						<b></b><b></b>
 						<span class="icon" style = "width: auto; padding-top: 3px;">
-							<ion-icon name="arrow-undo"></ion-icon>
+							<ion-icon name="arrow-undo" title=""></ion-icon>
 						</span>
 						<div class="sideopt-text">Requests</div>
 					</a>
 				</li>
 				<li class="sideopt">
-					<a href="#notification">
+					<a href="#notification" title="Notifications">
 						<b></b><b></b>
 						<span class="icon" style = "width: auto; padding-top: 3px;">
-							<ion-icon name="notifications"></ion-icon>
+							<ion-icon name="notifications" title=""></ion-icon>
 						</span>
-						<div class="sideopt-text">Notification</div>
+						<div class="sideopt-text">Notifications</div>
 					</a>
 				</li>
 				<li class="sideopt">
-					<a href="#account-management">
+					<a href="#account-management" title="Accounts">
 						<b></b><b></b>
-						<span class="icon" style = "width: auto; padding-top: 3px;"><ion-icon name="people"></ion-icon></span><div class="sideopt-text">Accounts</div></a></li>
+						<span class="icon" style = "width: auto; padding-top: 3px;">
+							<ion-icon name="people" title=""></ion-icon>
+						</span>
+						<div class="sideopt-text">Accounts</div>
+					</a>
+				</li>
 				<?php
 					}
 				?>

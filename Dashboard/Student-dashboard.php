@@ -87,7 +87,7 @@
                     while($demandinfo = mysqli_fetch_array($demanddata)) {
                         $bookinfo=mysqli_fetch_array(mysqli_query($conn,'select * from books where AccNo="'.$demandinfo['AccNo'].'"'));
             ?>
-                <div class="search-results-bookinfo">
+                <div class="search-results-bookinfo <?php if($demandinfo['Check_Status'] == 'Yet to be verified') echo "grayscale"; ?>">
                     <div class="search-results-bookinfo-bookpic">
                         <img src="../Essential Kits/pic/photorealistic.png" alt="Book Cover">
                     </div>
@@ -123,18 +123,18 @@
                             }
                             elseif($demandinfo['Check_Status'] == 'Yet to be verified') {
                         ?>
-                                <div class="search-results-bookinfo-optionset-pretext">
-                                    Not verified by admin!
-                                </div>
-                                <div class="search-results-bookinfo-optionset-text">
-                                    Please check after sometime or contact admin
-                                </div>
-                                <button onclick="window.location = ('../Dashboard/Dashboard.php?did=<?php echo $demandinfo['AccNo']; ?>&dopt=del')" class="search-results-bookinfo-optionset-btn red">
-                                    Remove from demand list
-                                </button>
-                                <button class="search-results-bookinfo-optionset-btn gray">
-                                    Close box
-                                </button>
+                            <div class="search-results-bookinfo-optionset-pretext">
+                                Not verified by admin!
+                            </div>
+                            <div class="search-results-bookinfo-optionset-text">
+                                Please check after sometime or contact admin
+                            </div>
+                            <button onclick="window.location = ('../Dashboard/Dashboard.php?did=<?php echo $demandinfo['AccNo']; ?>&dopt=del')" class="search-results-bookinfo-optionset-btn red">
+                                Remove from demand list
+                            </button>
+                            <button class="search-results-bookinfo-optionset-btn gray">
+                                Close box
+                            </button>
                         <?php
                             }
                         }
@@ -187,7 +187,7 @@
                     while($borrowinfo = mysqli_fetch_array($borrowdata)) {
                         $bookinfo=mysqli_fetch_array(mysqli_query($conn,'select * from books where AccNo="'.$borrowinfo['AccNo'].'"'));
             ?>
-                <div class="search-results-bookinfo">
+                <div class="search-results-bookinfo <?php if($borrowinfo['Check_Status'] == 'Yet to be borrowed') echo "grayscale"; elseif ($borrowinfo['Check_Status'] == 'Return Approval') echo "rotate"; ?>">
                     <div class="search-results-bookinfo-bookpic">
                         <img src="../Essential Kits/pic/photorealistic.png" alt="Book Cover">
                     </div>
@@ -201,41 +201,73 @@
                         <div class="search-results-bookinfo-publisher"><?php echo $bookinfo['Publisher']; ?></div>
                         <div class="search-results-bookinfo-secinfo">Click to show options</div>
                     </div>
-                    <div class="search-results-bookinfo-options">
-                        <?php
-                        $q1='select TIME_TO_SEC(TIMEDIFF(CURRENT_TIMESTAMP, "'.$borrowinfo['BorrDt'].'")) as timediff';
-                        $res1=mysqli_fetch_array(mysqli_query($conn,$q1));
-                        $mindiff = 86400;  //Sets minimum difference time of 1 day
-                        if($res1['timediff'] >= $mindiff) {  //If user has demanded a book after minimum day
-                        ?>
-                        <div class="search-results-bookinfo-optionset">
-                            <div class="search-results-bookinfo-optionset-pretext">
-                                Return this book to the Library
+                        <div class="search-results-bookinfo-options">
+                            <div class="search-results-bookinfo-optionset">
+                            <?php
+                            $q1='select TIME_TO_SEC(TIMEDIFF(CURRENT_TIMESTAMP, "'.$borrowinfo['BorrDt'].'")) as timediff';
+                            $res1=mysqli_fetch_array(mysqli_query($conn,$q1));
+                            $mindiff = 86400;  //Sets minimum difference time of 1 day
+                            if($res1['timediff'] >= $mindiff) {  //If user has demanded a book after minimum day
+                                if ($borrowinfo['Check_Status'] == "Yet to be borrowed") {
+                            ?>
+								<div class="search-results-bookinfo-optionset-pretext">
+									You haven't borrowed this book from the library yet
+								</div>
+								<div class="search-results-bookinfo-optionset-text">
+									Go to the library and contact admin
+								</div>
+								<button class="search-results-bookinfo-optionset-btn gray">
+									Close box
+								</button>
+                            <?php
+                                }
+                                elseif ($borrowinfo['Check_Status'] == "Borrowed") {
+                            ?>
+                                <div class="search-results-bookinfo-optionset-pretext">
+                                    Return this book to the Library
+                                </div>
+                                <button onclick="window.location = ('../Dashboard/Dashboard.php?bid=<?php echo $borrowinfo['AccNo']; ?>&bopt=ret')" class="search-results-bookinfo-optionset-btn green">
+                                    Return book
+                                </button>
+								<button class="search-results-bookinfo-optionset-btn gray">
+									Close box
+								</button>
+                            <?php
+                                }
+                                elseif ($borrowinfo['Check_Status'] == "Return Approval") {
+                            ?>
+                                <div class="search-results-bookinfo-optionset-pretext">
+									You haven't returned this book yet
+								</div>
+								<div class="search-results-bookinfo-optionset-text">
+									Go to the library and contact admin
+								</div>
+								<button class="search-results-bookinfo-optionset-btn gray">
+									Close box
+								</button>
+                            <?php
+                                }
+                            }
+                            else {
+                            ?>
+                                <div class="search-results-bookinfo-optionset-pretext">
+                                    Options currently not available!
+                                </div>
+                                <div class="search-results-bookinfo-optionset-text">
+                                    Please check after sometime
+                                </div>
+                                <button class="search-results-bookinfo-optionset-btn gray">
+                                    Close box
+                                </button>
+                            <?php
+                            }
+                            ?>
                             </div>
-                            <button onclick="window.location = ('../Dashboard/Dashboard.php?bid=<?php echo $borrowinfo['AccNo']; ?>&bopt=ret')" class="search-results-bookinfo-optionset-btn green">
-                                Return book
-                            </button>
                         </div>
-                        <?php
-                        }
-                        else {
-                        ?>
-                        <div class="search-results-bookinfo-optionset">
-                            <div class="search-results-bookinfo-optionset-pretext">
-                                Options currently not available!
-                            </div>
-                            <div class="search-results-bookinfo-optionset-text">
-                                Please check after sometime
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        ?>
                     </div>
-                </div>
-            <?php
+                <?php
                     }
-            ?>
+                ?>
                 </div>
                 <?php
                 }

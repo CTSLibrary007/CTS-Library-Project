@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 10:56 PM
+-- Generation Time: Jul 10, 2023 at 06:41 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -64,7 +64,7 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`AccNo`, `Title`, `Author`, `Publisher`, `Edition`, `Branch`, `Year`, `Sem`, `Status`) VALUES
-(69, 'Operating Systems', 'P Naskar', 'PN Printers pvt. ltd', '3rd', 'DCST', '2', '4', 'Available'),
+(69, 'Operating Systems', 'P. Naskar', 'P.N. Printers Pvt. Ltd.', '3rd', 'DCST', '2nd', '4th', 'Available'),
 (2808, 'Higher Engineering Mathematics', 'B. S. Grewal', 'Khanna Publishers', '8th', 'DCST', '1st', '2nd', 'Available'),
 (3381, 'Engineering Drawing', 'ND Bhatt', 'Charotkar Publishing House', '53rd', 'DCST', '1st', '1st', 'Available'),
 (4390, 'Programming in C', 'E. Balaguruswamy', 'Tata McGraw Hill', '4th', 'DCST', '2nd', '3rd', 'Available'),
@@ -80,15 +80,15 @@ INSERT INTO `books` (`AccNo`, `Title`, `Author`, `Publisher`, `Edition`, `Branch
 (7402, 'Higher Engineering Mathematics', 'B. S. Grewal', 'Khanna Publishers', '11th', 'DCST', '1st', '1st', 'Available'),
 (7404, 'Fundamentals of Database System', 'Elmasri, Navathe', 'Pearson', '3rd', 'DCST', '2nd', '4th', 'Available'),
 (7750, 'Introduction to Algorithms', 'Thomas Cormen', 'MIT Press', '4th', 'DCST', '2nd', '3rd', 'Available'),
-(7909, 'Computer Networking', 'Kurose, Ross', 'Pearson', '5th', 'DCST', '2nd', '4th', 'Borrowed'),
+(7909, 'Computer Networking', 'Kurose, Ross', 'Pearson', '5th', 'DCST', '2nd', '4th', 'Available'),
 (7963, 'Computer Organization', 'Carl Hamacher', 'Tata Mc Graw Hill', '9th', 'DCST', '2nd', '3rd', 'Available'),
-(7977, 'Basic Electricals and Electronics', 'S. K. Bhattacharya', 'Pearson', '6th', 'DCST', '1st', '2nd', 'Borrowed'),
+(7977, 'Basic Electricals and Electronics', 'S. K. Bhattacharya', 'Pearson', '6th', 'DCST', '1st', '2nd', 'Available'),
 (8695, 'Database Concept and System', 'Evan Bayross', 'SPD', '6th', 'DCST', '2nd', '4th', 'Available'),
 (8824, 'Java The Complete Reference', 'Herber Schildt', 'Tata McGraw Hill', '5th', 'DCST', '2nd', '4th', 'Available'),
 (8891, 'Programming in C', 'Reema Thareja', 'Oxford', '6th', 'DCST', '2nd', '3rd', 'Available'),
-(9341, 'Data Communication and Networking ', 'Forouzan', 'Tata McGraw Hill', '5th', 'DCST', '2nd', '4th', 'Borrowed'),
+(9341, 'Data Communication and Networking ', 'Forouzan', 'Tata McGraw Hill', '5th', 'DCST', '2nd', '4th', 'Available'),
 (9391, 'Fundamental of Software Engineering', 'Rajib Mall', 'PHI Learning Private Limited', '4th', 'DCST', '2nd', '4th', 'Available'),
-(9999, '3500+ JELET', 'A. Sarkar', 'Naba Publication', '1st', 'DCST', '6th', '2nd', 'Borrowed');
+(9999, '3500+ JELET', 'A. Sarkar', 'Naba Publication', '1st', 'DCST', '6th', '2nd', 'Available');
 
 -- --------------------------------------------------------
 
@@ -102,18 +102,8 @@ CREATE TABLE `borrowed` (
   `AccNo` int(11) NOT NULL,
   `BorrDt` datetime NOT NULL DEFAULT current_timestamp(),
   `Group` varchar(5) NOT NULL,
-  `Check_Status` varchar(30) NOT NULL DEFAULT 'Yet to be borrowed'
+  `Check_Status` enum('Yet to be borrowed','Borrowed','Return Approval') NOT NULL DEFAULT 'Yet to be borrowed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `borrowed`
---
-
-INSERT INTO `borrowed` (`BorrowID`, `LibID`, `AccNo`, `BorrDt`, `Group`, `Check_Status`) VALUES
-(14, '0/CS/B2/109', 7977, '2023-04-24 14:03:40', 'B2', 'Borrowed'),
-(15, '0/CS/B2/107', 9999, '2023-04-24 14:40:42', 'B2', 'Borrowed'),
-(16, '0/CS/K/016', 7909, '2023-04-26 14:33:18', 'K', 'Borrowed'),
-(17, '0/CS/B2/109', 9341, '2023-04-26 14:33:23', 'B2', 'Borrowed');
 
 -- --------------------------------------------------------
 
@@ -126,7 +116,7 @@ CREATE TABLE `demand` (
   `DemandDate` datetime DEFAULT current_timestamp(),
   `AccNo` int(11) NOT NULL,
   `StdID` varchar(50) NOT NULL,
-  `Check_Status` varchar(30) NOT NULL DEFAULT 'Yet to be verified'
+  `Check_Status` enum('Yet to be verified','Verified') NOT NULL DEFAULT 'Yet to be verified'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -355,13 +345,13 @@ ALTER TABLE `year`
 -- AUTO_INCREMENT for table `borrowed`
 --
 ALTER TABLE `borrowed`
-  MODIFY `BorrowID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `BorrowID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `demand`
 --
 ALTER TABLE `demand`
-  MODIFY `DemandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4249;
+  MODIFY `DemandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `group`
