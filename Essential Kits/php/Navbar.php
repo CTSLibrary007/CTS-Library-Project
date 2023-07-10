@@ -14,84 +14,123 @@
 
         <!-- If screen size is very small then mini options will appear -->
 
-        <li id="minoptions">
+        <li class="minoptions hoverable" style="margin-left: auto;">
             <span class="icon-iconmonstr-menu-right-lined"></span>
-            <ul id="minoption-optionlist">
-                <?php
-                    global $aboutflag;
-                    if(!isset($_SESSION['user'])) {
-                        if(!isset($aboutflag)) {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../About/About.php"><span class="fa fa-home"></span>About</a>
-                </li>
-                <?php
-                        }
-                    }
-                    else {
-                        if($aboutflag) {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../Dashboard/Dashboard.php"><span class="fa fa-home"></span>Go to Dashboard</a>
-                </li>
-                <?php
-                        }
-                        else {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../About/About.php"><span class="fa fa-home"></span>About</a>
-                </li>
-                <?php
-                        }
-                    }
-                ?>
-                <?php
-                    global $searchflag;
-                    if(!isset($_SESSION['user'])) {
-                        if(!isset($searchflag)) {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
-                </li>
-                <?php
-                        }
-                    }
-                    else {
-                        if($searchflag) {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../Dashboard/Dashboard.php"><span class="fa fa-home"></span>Go to Dashboard</a>
-                </li>
-                <?php
-                        }
-                        else {
-                            if($_SESSION['role'] == 'admin') {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../Manage Books/Managebooks.php"><ion-icon name="book" style="margin-bottom: -4.2px; font-size: 1.35rem;"></ion-icon>Manage Books</a>
-                </li>
-                <?php
-                            }
-                            else {
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
-                </li>
-                <?php
-                            }
-                        }
-                    }
-                ?>
-                <li class="minoption-optionlist-options">
-                    <a class="show-contactus"><span class="fa fa-address-card"></span>Contact Us</a>
-                </li>
-                <li class="minoption-optionlist-options">
-                    <div id="light-icon-theme" class="icon"><ion-icon name="sunny-outline"></ion-icon>Light Theme</div>
-                    <div id="dark-icon-theme"><span class="fa-solid fa-moon"></span>Dark Theme</div>
-                </li>
-
-            </ul>
-        </li>
+		</li>
+		<ul class="minoption-optionlist">
+			<?php
+				global $aboutflag;
+				if(!isset($_SESSION['user'])) {
+					if(!isset($aboutflag)) {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../About/About.php"><span class="fa fa-home"></span>About</a>
+			</li>
+			<?php
+					}
+				}
+				else {
+					if($aboutflag) {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../Dashboard/Dashboard.php"><span class="fa fa-home"></span>Go to Dashboard</a>
+			</li>
+			<?php
+					}
+					else {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../About/About.php"><span class="fa fa-home"></span>About</a>
+			</li>
+			<?php
+					}
+				}
+			?>
+			<?php
+				global $searchflag;
+				if(!isset($_SESSION['user'])) {
+					if(!isset($searchflag)) {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
+			</li>
+			<?php
+					}
+				}
+				else {
+					if($searchflag) {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../Dashboard/Dashboard.php"><span class="fa fa-home"></span>Go to Dashboard</a>
+			</li>
+			<?php
+					}
+					else {
+						if($_SESSION['role'] == 'admin') {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../Manage Books/Managebooks.php"><ion-icon name="book" style="margin-bottom: -4.2px; font-size: 1.35rem;"></ion-icon>Manage Books</a>
+			</li>
+			<?php
+						}
+						else {
+			?>
+			<li class="minoption-optionlist-options">
+				<a href="../Search Book/Searchbook.php"><span class="fa fa-magnifying-glass"></span>Search Book</a>
+			</li>
+			<?php
+						}
+					}
+				}
+			?>
+			<li class="minoption-optionlist-options">
+				<a class="show-contactus"><span class="fa fa-address-card"></span>Contact Us</a>
+			</li>
+			<li class="minoption-optionlist-options">
+				<div id="light-icon-theme" class="icon"><ion-icon name="sunny-outline"></ion-icon>Light Theme</div>
+				<div id="dark-icon-theme"><span class="fa-solid fa-moon"></span>Dark Theme</div>
+			</li>
+			<?php
+				if (isset($_SESSION['user'])) {
+					if ($_SESSION['role'] == 'student') {
+			?>
+			<li class="minoption-optionlist-options">
+				<a class="shownotif"><span class="fa fa-bell"></span>Notifications</a>
+			</li>
+			<?php
+					}
+				}
+			?>
+		</ul>
+        <?php
+            if (!isset($_SESSION['user'])) {
+                echo '<li class="minoptions" style="padding-top: 6px !important;"><span class="fa-solid fa-arrow-right-to-bracket" style="font-size: 0.8em;" onclick="window.location = (\'../Sign In/signin.php\')"></span></li>';
+            }
+            else {
+                echo '<li class="minoptions hoverable" style="padding-top: 5px !important;">';
+                if ($_SESSION['role'] == 'student') {
+                    echo '<span class="fa-solid fa-user-graduate" style="font-size: 0.76em;" title="'.$_SESSION['name'].'&#10;'.$_SESSION['user'].'"></span>';
+                }
+                elseif ($_SESSION['role'] == 'admin') {
+                    echo '<span class="fa-solid fa-user-shield" style="font-size: 0.76em;" title="'.$_SESSION['name'].'"></span>';
+                }
+                echo '</li>';
+        ?>
+		<ul class="minoption-optionlist">
+            
+			<li class="minoption-optionlist-options">
+				<a class="open-modal"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>My Account</a>
+			</li>
+			<li class="minoption-optionlist-options">
+				<a href="#"><span class="icon"><ion-icon name="settings-outline"></ion-icon></span>Settings</a>
+			</li>
+			<li class="minoption-optionlist-options">
+				<a name = "logout" href="../Essential Kits/php/logout.php?logout=logout"><span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>Sign Out</a>
+			</li>
+		</ul>
+		<?php
+				}
+		?>
 
         <!-- For medium to bigger screens -->
 
@@ -251,15 +290,9 @@
         <?php
             if (isset($_SESSION['user'])) {
                 if ($_SESSION['role'] == 'student') {
-        ?>
-        <li class="option-btns">
-            <span class="fa fa-bell"></span>
-        </li>
-        <?php
+                    echo '<li class="option-btns"><span class="fa fa-bell"></span></li>';
                 }
             }
-        ?>
-        <?php
             if (!isset($_SESSION['user'])) {
         ?>
         <li id="login-btn">
@@ -287,7 +320,7 @@
                 <?php echo $_SESSION['name']; ?> 
             </div>
             <div class="dropdown">
-                <a id="open-modal"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>My Account</a>
+                <a class="open-modal"><span class="icon"><ion-icon name="person-outline"></ion-icon></span>My Account</a>
                 <a href="#"><span class="icon"><ion-icon name="settings-outline"></ion-icon></span>Settings</a>
                 <a name = "logout" href="../Essential Kits/php/logout.php?logout=logout"><span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>Sign Out</a>
             </div>

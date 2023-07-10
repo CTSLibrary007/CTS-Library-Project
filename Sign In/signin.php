@@ -46,6 +46,7 @@
 		<title>Sign In to continue</title>
 	</head>
 	<body>
+	<script src="../Essential Kits/js/document-loader-script.js"></script>
 		<div class="main-box">
 			<h2 class="signin">Sign In</h2>
 			<h4 class="text">To your existing account to access Library</h4>

@@ -5,8 +5,8 @@
     <h2>Requests</h2>
     <div id="request-panel">
         <?php
-            $demanddata = $conn->query("select * from demand where Check_Status = 'Yet to be verified'");
-            $borrowdata = $conn->query("select * from borrowed where Check_Status = 'Yet to be verified'");
+            $demanddata = $conn->query("select * from demand");
+            $borrowdata = $conn->query("select * from borrowed where Check_Status = 'Yet to be borrowed'");
             if ($demanddata->num_rows > 0) {
                 while($demandinfo = $demanddata->fetch_array()) {
                     $q1='select TIME_TO_SEC(TIMEDIFF(CURRENT_TIMESTAMP, "'.$demandinfo['DemandDate'].'")) as timediff';
@@ -34,14 +34,18 @@
         ?>
         <div id="request-panel-options">
             <div id="demand-request-page" class="active">Demand Requests (<?php echo mysqli_fetch_array($conn->query('SELECT COUNT(`DemandID`) FROM `demand` WHERE `Check_Status` = "Yet to be verified"'))[0]; ?>)</div>
-            <div id="borrow-request-page">Borrow Requests (<?php echo mysqli_fetch_array($conn->query('SELECT COUNT(`BorrowID`) FROM `borrowed` WHERE `Check_Status` = "Yet to be borrowed"'))[0]; ?>)</div>
+            <div id="borrow-request-page">Borrow Requests (<?php echo mysqli_fetch_array($conn->query('SELECT COUNT(`BorrowID`) FROM `borrowed` WHERE `Check_Status` != "Borrowed"'))[0]; ?>)</div>
             <div id="group-request-page">Group Requests (<?php echo 0; ?>)</div>
         </div>
         <div id="request-panel-requests">
             <div id="demand-request-content" class="active">
                 <div class="available-books-content">
                     <?php
-                        $q="SELECT `demand`.*, `students`.Name, `students`.Card_No, `books`.* FROM `demand` INNER JOIN students ON `demand`.StdID = `students`.Card_No INNER JOIN books ON `demand`.AccNo = `books`.AccNo order by demand.DemandDate ASC";
+                        $q="SELECT `demand`.*, `students`.Name, `students`.Card_No, `books`.* FROM `demand`
+                        INNER JOIN students ON `demand`.StdID = `students`.Card_No
+                        INNER JOIN books ON `demand`.AccNo = `books`.AccNo
+                        WHERE `demand`.`Check_Status` = \"Yet to be verified\"
+                        ORDER BY demand.DemandDate ASC";
                         $demanddata = mysqli_query($conn,$q);
                         if(mysqli_num_rows($demanddata) > 0) {
                     ?>
@@ -99,7 +103,7 @@
                         $q="SELECT * FROM borrowed
                         INNER JOIN students ON borrowed.LibID = students.Card_No
                         INNER JOIN books ON borrowed.AccNo = books.AccNo
-                        WHERE borrowed.Check_Status = 'Yet to be borrowed' ORDER BY borrowed.BorrDt";
+                        WHERE borrowed.Check_Status != 'Borrowed' ORDER BY borrowed.BorrDt";
                         $borrowdata = mysqli_query($conn,$q);
                         if(mysqli_num_rows($borrowdata) > 0) {
                     ?>
@@ -107,7 +111,7 @@
                     <?php
                             while($borrowinfo = mysqli_fetch_array($borrowdata)) {
                     ?>
-                    <div class="search-results-bookinfo">
+                    <div class="search-results-bookinfo <?php if($borrowinfo['Check_Status'] == 'Return Approval') echo 'rotate'; ?>">
                         <div class="search-results-bookinfo-bookpic">
                             <img src="../Essential Kits/pic/photorealistic.png" alt="Book Cover">
                         </div>
@@ -116,26 +120,39 @@
                             <div class="search-results-bookinfo-secinfo">Acc. No.:<?php echo $borrowinfo['AccNo']; ?></div>
                             <div class="search-results-bookinfo-title"><?php echo $borrowinfo['Title']; ?></div>
                             <div class="search-results-bookinfo-secinfo">By <?php echo $borrowinfo['Author']; ?>, </div>
-                            <div class="search-results-bookinfo-edition">Borrower: <?php echo $borrowinfo['Name'];?> (<?php echo $borrowinfo['Card_No'];?>)</div>
+                            <div class="search-results-bookinfo-edition"><?php if ($borrowinfo['Check_Status'] == "Yet to be borrowed") echo "Borrower: "; elseif($borrowinfo['Check_Status'] == "Return Approval") echo "Returning Book by: "; echo $borrowinfo['Name']." (".$borrowinfo['Card_No'].")";?></div>
                             <div class="search-results-bookinfo-publisher"><?php echo $borrowinfo['Publisher']; ?></div>
                             <div class="search-results-bookinfo-secinfo">Click to show options</div>
                         </div>
                         <div class="search-results-bookinfo-options">  <!-- Work from here dude :") -->
                             <div class="search-results-bookinfo-optionset">
+                                <?php
+                                    if ($borrowinfo['Check_Status'] == "Yet to be borrowed") {
+                                ?>
                                 <button onclick="window.location = ('../Dashboard/Dashboard.php?bid=<?php echo $borrowinfo['AccNo']; ?>&bopt=issue')" class="search-results-bookinfo-optionset-btn green">
                                     Issue book
                                 </button>
                                 <button onclick="window.location = ('../Dashboard/Dashboard.php?bid=<?php echo $borrowinfo['AccNo']; ?>&bopt=del')" class="search-results-bookinfo-optionset-btn red">
                                     Cancel borrow request
                                 </button>
-                                <button class="search-results-bookinfo-optionset-btn gray">
+								<?php
+									}
+									elseif ($borrowinfo['Check_Status'] == "Return Approval") {
+								?>
+								<button onclick="window.location = ('../Dashboard/Dashboard.php?bid=<?php echo $borrowinfo['AccNo']; ?>&bopt=del')" class="search-results-bookinfo-optionset-btn green">
+                                    Confirm return
+                                </button>
+								<?php
+									}
+								?>
+								<button class="search-results-bookinfo-optionset-btn gray">
                                     Close box
                                 </button>
                             </div>
                         </div>
                     </div>
                 <?php
-                        }
+                            }
                 ?>
                     </div>
                     <?php

@@ -28,9 +28,9 @@ html {
     z-index: 6;
     top: 0;
     font-size: 22px;
-    color:white;
+    color: var(--context-text);
     height: 70px;
-    background: #063146;
+    background: var(--sidebar-header-background-color);
     user-select: none;
     padding-left: 32.5px;
 }
@@ -149,7 +149,7 @@ html {
 .main-content {
     color: var(--context-text);
     margin-left: 85px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
 }

@@ -1,0 +1,1 @@
+document.onreadystatechange=()=>{if(document.readyState==="complete")document.querySelector("body").removeAttribute('style');else document.querySelector("body").style.display="none";}

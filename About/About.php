@@ -15,6 +15,7 @@
 
 </head>
 <body>
+	<script src="../Essential Kits/js/document-loader-script.js"></script>
     <?php
         $aboutflag=1;
         include '../Essential Kits/php/Navbar.php'

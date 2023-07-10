@@ -1,33 +1,30 @@
 //Setting up light and dark themes
 
-let lighticon = document.querySelector("#light-icon");
-let darkicon = document.querySelector("#dark-icon");
-let lighticontheme = document.querySelector("#light-icon-theme");
-let darkicontheme = document.querySelector("#dark-icon-theme");
+const lighticon = document.querySelector("#light-icon");
+const darkicon = document.querySelector("#dark-icon");
+const lighticontheme = document.querySelector("#light-icon-theme");
+const darkicontheme = document.querySelector("#dark-icon-theme");
+if (!localStorage.hasOwnProperty('theme')) localStorage.setItem('theme', 'dark');
+if (localStorage.getItem('theme') === 'light') changeThemeToLight();
+else if (localStorage.getItem('theme') === 'dark') changeThemeToDark();
 
-darkicon.onclick = () => {
-    document.body.classList.toggle("light-theme");
-    darkicon.style.display = "none";
-    lighticon.style.display = "inline-block";
-    darkicontheme.style.display = "none";
-    lighticon.style.display = "block";
-}
-lighticon.onclick = () => {
-    document.body.classList.toggle("light-theme");
-    darkicon.style.display = "inline-block";
-    lighticon.style.display = "none";
-    darkicontheme.style.display = "block";
-    lighticontheme.style.display = "none";
-}
-darkicontheme.onclick = () => {
-    document.body.classList.toggle("light-theme");
+darkicon.onclick = changeThemeToLight;
+lighticon.onclick = changeThemeToDark;
+darkicontheme.onclick = changeThemeToLight;
+lighticontheme.onclick = changeThemeToDark;
+
+function changeThemeToLight() {
+    document.body.classList.add("light-theme");
+    localStorage.setItem('theme', 'light');
     darkicon.style.display = "none";
     lighticon.style.display = "inline-block";
     darkicontheme.style.display = "none";
     lighticontheme.style.display = "block";
 }
-lighticontheme.onclick = () => {
-    document.body.classList.toggle("light-theme");
+
+function changeThemeToDark() {
+    document.body.classList.remove("light-theme");
+    localStorage.setItem('theme', 'dark');
     darkicon.style.display = "inline-block";
     lighticon.style.display = "none";
     darkicontheme.style.display = "block";
@@ -36,9 +33,9 @@ lighticontheme.onclick = () => {
 
 //Toggling suboption list
 
-let suboption = document.querySelector('#option');
-let suboptionicon = suboption.children[0];
-let suboptionlist = suboption.children[1];
+const suboption = document.querySelector('#option');
+const suboptionicon = suboption.children[0];
+const suboptionlist = suboption.children[1];
 suboptionicon.onclick = () => {
     if(suboptionlist.className == "sublist") {
         suboptionicon.style.transform = "rotate(-180deg)";
@@ -60,53 +57,62 @@ window.onclick = (e) => {
 
 //Opening and closing of contact us page
 
-document.querySelectorAll(".show-contactus")[0].addEventListener("click",function(){
-    document.querySelector(".popup").classList.add("active");
-})
-document.querySelectorAll(".show-contactus")[1].addEventListener("click",function(){
-    document.querySelector(".popup").classList.add("active");
-})
+const showcontactus = document.querySelectorAll(".show-contactus");
+for(i = 0; i < showcontactus.length; i++) {
+    showcontactus[i].onclick = () => {
+        document.querySelector(".popup").classList.add("active");
+    }
+}
 document.querySelector(".popup .close-btn").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
-})
+});
 
 //Opening and closing of modal
 
-let openmodal = document.querySelector("#open-modal");
-let modal = document.querySelector("#modal");
-openmodal.onclick = () => {
-    modal.classList.add("modalshow");
-    scrollVisibility();  //Correct
-    // printf();
+const openmodal = document.querySelectorAll(".open-modal");
+const modal = document.querySelector("#modal");
+for(i=0; i<openmodal.length; i++) {
+    openmodal[i].onclick = () => {
+        modal.classList.add("modalshow");
+        scrollVisibility();  //Correct
+        // printf();
+    }
 }
-let closemodal = document.querySelector("#modal .close-btn");
+const closemodal = document.querySelector("#modal .close-btn");
 closemodal.onclick = () => {
     modal.classList.remove("modalshow");
 }
 
 //Scrolling horizontally
 
-let leftscroll = document.querySelector("#leftarrow");
-let rightscroll = document.querySelector("#rightarrow");
-let element = document.querySelector("#groupgrid-content");
+const leftscroll = document.querySelector("#leftarrow");
+const rightscroll = document.querySelector("#rightarrow");
+const element = document.querySelector("#groupgrid-content");
 
-let currentScrollPosition = element.scrollLeft;
+let currentScrollPosition;
+if (element != null) currentScrollPosition = element.scrollLeft;
 let scrollAmount = 100;
 
-leftscroll.onclick = () => {
-    scrollHorizontally(-1);
-    // console.log("Left clicked");
+if (leftscroll != null) {
+    leftscroll.onclick = () => {
+        scrollHorizontally(-1);
+        // console.log("Left clicked");
+    }
 }
 
-rightscroll.onclick = () => {
-    scrollHorizontally(1);
-    // console.log("Right clicked");
+if (rightscroll != null) {
+    rightscroll.onclick = () => {
+        scrollHorizontally(1);
+        // console.log("Right clicked");
+    }
 }
 
-element.addEventListener('scroll', () => {
-    // console.log("scrolled");
-    scrollVisibility();
-})
+if (element != null) {
+    element.addEventListener('scroll', () => {
+        // console.log("scrolled");
+        scrollVisibility();
+    });
+}
 
 function scrollHorizontally(val) {
     element.scrollBy({

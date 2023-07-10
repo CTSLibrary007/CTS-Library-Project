@@ -84,7 +84,8 @@ nav > ul > li:first-child {
 .title > a:hover {
     color: var(--navbar-text);
 }
-nav #minoptions {
+nav .minoptions,
+nav .minoption-optionlist {
     display: none;
 }
 
@@ -105,6 +106,7 @@ nav > ul > .option-btns ~ .option-btns  {
     width: inherit;
     height: inherit;
     padding: 15px 15px 12.6px 15px;
+    cursor: pointer;
 }
 
 
@@ -246,16 +248,19 @@ nav > ul > li:last-child span,
     nav #session-btn {
         display: none;
     }
-    nav #minoptions {
+    nav .minoptions {
         display: block;
-        margin-right: 30px;
         font-size: 2rem;
         padding-top: 10px;
+        position: relative;
     }
-    #minoptions > span {
+    nav .minoptions:last-of-type {
+        margin-right: 30px;
+    }
+    .minoptions > span {
         cursor: pointer;
     }
-    #minoptions > #minoption-optionlist {
+    .minoptions + .minoption-optionlist {
         display: flex;
         flex-direction: column;
         max-height: 0;
@@ -269,45 +274,47 @@ nav > ul > li:last-child span,
         border-radius: 5px;
         transition: all .2s linear, box-shadow .1s linear;
     }
-    #minoptions:hover > #minoption-optionlist {
+    .minoptions:hover + .minoption-optionlist,
+    .minoption-optionlist:hover {
         max-height: 100vh;
         overflow: visible;
         box-shadow: var(--dialog-box-shadow);
     }
-    #minoptions:hover > #minoption-optionlist::before {
+    .minoptions.hoverable:hover::before {
         content: '';
         width: 15px;
         height: 15px;
         position: absolute;
-        top: -7.5px;
-        right: 35px;
+        bottom: -12.2px;
+        left: 7.5px;
         background: var(--dialog-box-background);
         transform: rotate(-45deg);
         transition-delay: .2s;
+        z-index: 2;
     }
-    #minoption-optionlist > li {
+    .minoption-optionlist > li {
         padding: 5px 0px 10px 10px;
         cursor: pointer;
     }
     /* Work start from here */
     
-    /* #minoption-optionlist-options > * {
+    /* .minoption-optionlist-options > * {
         width: inherit;
     } */
-    #minoption-optionlist > li:first-child {
+    .minoption-optionlist > li:first-child {
         padding-top: 20px;
     }
-    #minoption-optionlist > li:last-child {
+    .minoption-optionlist > li:last-child {
         padding-bottom: 20px;
     }
-    #minoption-optionlist > li > a > *:first-child,
-    #minoption-optionlist > li > div > *:first-child {
+    .minoption-optionlist > li > a > *:first-child,
+    .minoption-optionlist > li > div > *:first-child {
     margin-right: 12px;
     width: 20.7px;
     }
 }
 
-@media only screen and (max-width: 436px) {
+@media only screen and (max-width: 475px) {
     nav .title {
         display: none;
     }
