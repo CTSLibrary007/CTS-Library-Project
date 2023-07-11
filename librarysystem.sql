@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2023 at 06:41 PM
+-- Generation Time: Jul 10, 2023 at 07:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -39,7 +39,6 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`Name`, `Username`, `Password`) VALUES
 ('Arko', 'arkokundu@#1234', '1a1dc91c907325c69271ddf0c944bc72'),
-('AD', 'adey@#100', 'ctsadmin1234'),
 ('Swastik', 'kookaswas@#1234', '1a1dc91c907325c69271ddf0c944bc72');
 
 -- --------------------------------------------------------
@@ -195,40 +194,40 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`Card_No`, `Name`, `Course`, `Year`, `RegNumber`, `Roll`, `Number`, `Group`, `Date`, `Password`) VALUES
-('0/CE/C/001', 'Anik Das', 'DCE', '3rd', '', '', 0, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/C/002', 'Rina Chowdhury', 'DCE', '3rd', '', '', 10005511, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/C/003', 'Dhrubyajoti Patra', 'DCE', '3rd', '', '', 10005497, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/C/004', 'Bimal Pramanik', 'DCE', '3rd', '', '', 0, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/C/005', 'Bitan Sarkar', 'DCE', '3rd', '', '', 10005495, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/M/018', 'Riya Debnath', 'DCE', '3rd', '', '', 10005513, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/M/019', 'Tamojit Neogi', 'DCE', '3rd', '', '', 10005535, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/M/020', 'Samihan Kadir', 'DCE', '3rd', '', '', 10005518, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/M/021', 'Suvasundar Das', 'DCE', '3rd', '', '', 10005534, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CE/M/022', 'Joydeep Dey', 'DCE', '3rd', '', '', 10005502, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/B2/105', 'Shuvankar Dhara', 'DCST', '3rd', '', 'DCTSCSTS5', 10005568, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/B2/106', 'Tanmoy Bose', 'DCST', '3rd', '', 'DCTSCSTS5', 10005589, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/B2/107', 'Suranjan Das', 'DCST', '3rd', '', 'DCTSCSTS5', 10005583, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/B2/108', 'Subhajit Mondal', 'DCST', '3rd', '', 'DCTSCSTS5', 0, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/B2/109', 'Swastik Sarkar', 'DCST', '3rd', '', 'DCTSCSTS5', 10005586, 'B2', '2022-02-02', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/B2/110', 'Arko Kundu', 'DCST', '3rd', '', 'DCTSCSTS5', 10005544, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/K/012', 'Sayan Pramanik', 'DCST', '3rd', '', 'DCTSCSTS5', 10005565, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/K/013', 'Swarnali Pramanik', 'DCST', '3rd', '', 'DCTSCSTS5', 10005585, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/K/014', 'Suman Das', 'DCST', '3rd', '', 'DCTSCSTS5', 10005581, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/K/015', 'Purnendu Naskar', 'DCST', '3rd', '', 'DCTSCSTS5', 10005558, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/K/016', 'Dipayan Paul', 'DCST', '3rd', '', 'DCTSCSTS5', 10005553, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/K/017', 'Arnab Dalui', 'DCST', '3rd', '', 'DCTSCSTS5', 10005545, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/M1/087', 'Rishav Saha', 'DCST', '3rd', '', 'DCTSCSTS5', 10005567, 'M1', '2022-04-20', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/P/023', 'Ankita Das', 'DCST', '3rd', '', 'DCTSCSTS5', 10005542, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/P/024', 'Anushka Dutta', 'DCST', '3rd', '', 'DCTSCSTS5', 10005543, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/P/025', 'Tanaya Kanrar', 'DCST', '3rd', '', 'DCTSCSTS5', 10005587, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/P/026', 'Souvik Harh', 'DCST', '3rd', '', 'DCTSCSTS5', 10005577, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/P/027', 'Shampa Das', 'DCST', '3rd', '', 'DCTSCSTS5', 10005567, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/P/086', 'Anirudha Bag', 'DCST', '3rd', '', 'DCTSCSTS5', 10005540, 'P', '2022-03-29', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/Q/028', 'Subhankar Majumdar', 'DCST', '3rd', '', 'DCTSCSTS5', 10005574, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/Q/029', 'Dip Kumar Bargi', 'DCST', '3rd', '', 'DCTSCSTS5', 10005552, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/Q/030', 'Sagar Sarkar', 'DCST', '3rd', '', 'DCTSCSTS5', 10005563, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/Q/031', 'Rajarshi Ghosh', 'DCST', '3rd', '', 'DCTSCSTS5', 10005559, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('0/CS/Q/032', 'Airshwita Saha', 'DCST', '3rd', '', 'DCTSCSTS5', 0, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/C/001', 'Anik Das', 'DCE', '3rd', '', 'DCTSCES6', 0, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/C/002', 'Rina Chowdhury', 'DCE', '3rd', '', 'DCTSCES6', 10005511, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/C/003', 'Dhrubyajoti Patra', 'DCE', '3rd', '', 'DCTSCES6', 10005497, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/C/004', 'Bimal Pramanik', 'DCE', '3rd', '', 'DCTSCES6', 0, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/C/005', 'Bitan Sarkar', 'DCE', '3rd', '', 'DCTSCES6', 10005495, 'C', '2022-03-14', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/M/018', 'Riya Debnath', 'DCE', '3rd', '', 'DCTSCES6', 10005513, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/M/019', 'Tamojit Neogi', 'DCE', '3rd', '', 'DCTSCES6', 10005535, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/M/020', 'Samihan Kadir', 'DCE', '3rd', '', 'DCTSCES6', 10005518, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/M/021', 'Suvasundar Das', 'DCE', '3rd', '', 'DCTSCES6', 10005534, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CE/M/022', 'Joydeep Dey', 'DCE', '3rd', '', 'DCTSCES6', 10005502, 'M', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/B2/105', 'Shuvankar Dhara', 'DCST', '3rd', '', 'DCTSCSTS6', 10005568, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/B2/106', 'Tanmoy Bose', 'DCST', '3rd', '', 'DCTSCSTS6', 10005589, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/B2/107', 'Suranjan Das', 'DCST', '3rd', '', 'DCTSCSTS6', 10005583, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/B2/108', 'Subhajit Mondal', 'DCST', '3rd', '', 'DCTSCSTS6', 0, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/B2/109', 'Swastik Sarkar', 'DCST', '3rd', '', 'DCTSCSTS6', 10005586, 'B2', '2022-02-02', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/B2/110', 'Arko Kundu', 'DCST', '3rd', '', 'DCTSCSTS6', 10005544, 'B2', '2022-04-19', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/K/012', 'Sayan Pramanik', 'DCST', '3rd', '', 'DCTSCSTS6', 10005565, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/K/013', 'Swarnali Pramanik', 'DCST', '3rd', '', 'DCTSCSTS6', 10005585, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/K/014', 'Suman Das', 'DCST', '3rd', '', 'DCTSCSTS6', 10005581, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/K/015', 'Purnendu Naskar', 'DCST', '3rd', '', 'DCTSCSTS6', 10005558, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/K/016', 'Dipayan Paul', 'DCST', '3rd', '', 'DCTSCSTS6', 10005553, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/K/017', 'Arnab Dalui', 'DCST', '3rd', '', 'DCTSCSTS6', 10005545, 'K', '2022-03-15', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/M1/087', 'Rishav Saha', 'DCST', '3rd', '', 'DCTSCSTS6', 10005567, 'M1', '2022-04-20', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/P/023', 'Ankita Das', 'DCST', '3rd', '', 'DCTSCSTS6', 10005542, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/P/024', 'Anushka Dutta', 'DCST', '3rd', '', 'DCTSCSTS6', 10005543, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/P/025', 'Tanaya Kanrar', 'DCST', '3rd', '', 'DCTSCSTS6', 10005587, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/P/026', 'Souvik Harh', 'DCST', '3rd', '', 'DCTSCSTS6', 10005577, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/P/027', 'Shampa Das', 'DCST', '3rd', '', 'DCTSCSTS6', 10005567, 'P', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/P/086', 'Anirudha Bag', 'DCST', '3rd', '', 'DCTSCSTS6', 10005540, 'P', '2022-03-29', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/Q/028', 'Subhankar Majumdar', 'DCST', '3rd', '', 'DCTSCSTS6', 10005574, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/Q/029', 'Dip Kumar Bargi', 'DCST', '3rd', '', 'DCTSCSTS6', 10005552, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/Q/030', 'Sagar Sarkar', 'DCST', '3rd', '', 'DCTSCSTS6', 10005563, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/Q/031', 'Rajarshi Ghosh', 'DCST', '3rd', '', 'DCTSCSTS6', 10005559, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('0/CS/Q/032', 'Airshwita Saha', 'DCST', '3rd', '', 'DCTSCSTS6', 0, 'Q', '2022-03-21', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('0/EE/G1/072', 'Debangshu Samanta', 'DEE', '3rd', '', '', 10005601, 'G1', '2022-03-29', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('0/EE/G1/073', 'Pralay Ghosh', 'DEE', '3rd', '', '', 10005614, 'G1', '2022-03-29', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('0/EE/G1/074', 'Koushik Mallick', 'DEE', '3rd', '', '', 10005605, 'G1', '2022-03-29', '5f4dcc3b5aa765d61d8327deb882cf99'),
@@ -245,7 +244,7 @@ INSERT INTO `students` (`Card_No`, `Name`, `Course`, `Year`, `RegNumber`, `Roll`
 ('0/ME/X/054', 'Subham Mondal', 'DME', '3rd', '', '', 10005666, 'X', '2022-03-26', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('0/ME/X/055', 'Pramito Bhowmick', 'DME', '3rd', '', '', 10005666, 'X', '2022-03-26', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('0/ME/X/056', 'Barnali Sarkar', 'DME', '3rd', '', '', 10005666, 'X', '2022-03-26', '5f4dcc3b5aa765d61d8327deb882cf99'),
-('1/CE/C/006', 'Risibha Raj Gupta', 'DCE', '3rd', '', '', 10005512, 'C', '2022-07-13', '5f4dcc3b5aa765d61d8327deb882cf99'),
+('1/CE/C/006', 'Risibha Raj Gupta', 'DCE', '3rd', '', 'DCTSCES6', 10005512, 'C', '2022-07-13', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('1/CE/N/005', 'Sunny Deo Ram', 'DCE', '2nd', '', '', 48, 'N', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('1/CE/N/006', 'Vijayanand Kumar', 'DCE', '2nd', '', '', 52, 'N', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),
 ('1/CE/N/007', 'Snneha Shaw', 'DCE', '2nd', '', '', 59, 'N', '2022-03-16', '5f4dcc3b5aa765d61d8327deb882cf99'),

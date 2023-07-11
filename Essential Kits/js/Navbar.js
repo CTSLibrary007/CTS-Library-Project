@@ -79,8 +79,10 @@ for(i=0; i<openmodal.length; i++) {
     }
 }
 const closemodal = document.querySelector("#modal .close-btn");
-closemodal.onclick = () => {
-    modal.classList.remove("modalshow");
+if (closemodal !== null) {
+	closemodal.onclick = () => {
+		modal.classList.remove("modalshow");
+	}
 }
 
 //Scrolling horizontally
@@ -143,4 +145,40 @@ function scrollVisibility() {
         // console.log("Continue scrolling left");
         leftscroll.style.transform = "scale(1)";
     }
+}
+
+// Setting contact us page
+const contactformpage = document.querySelector("#contact-us-form");
+const submit = document.querySelector(".form-element > #contact-us-submit");
+const emailaddr = document.querySelector(".form-element > #email");
+const feedback = document.querySelector(".form-element > #feedback");
+contactformpage.onsubmit = sendFeedback;
+function sendFeedback() {
+	let body = feedback.value;
+	body = body.replace('\n','<br>');
+	body = body.replace(/ {2,}/g,'&nbsp;');
+    Email.send({
+        SecureToken: "6c456a04-b364-4f2f-9422-00bc5e5fe0e0",
+        To : 'gaming.nrgpowers.137@gmail.com',
+        From : 'gaming.nrgpowers.137@gmail.com',
+        Subject : "[CTS Library] Feedback: Website Issues and Bugs Encountered by "+emailaddr.value,
+        Body : body
+    }).then(
+        alert("Your email has been sent successfully to the developer!!")
+    );
+	document.querySelector(".popup").classList.remove("active");
+	emailaddr.value = "";
+	feedback.value = "";
+	return false;
+};
+
+window.onbeforeunload = (e) => {
+	if (emailaddr.value != "" || feedback.value != "") {
+		return "";
+	}
+};
+
+document.onload = () => {
+	emailaddr.value = "";
+	feedback.value = "";
 }

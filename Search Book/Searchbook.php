@@ -194,6 +194,7 @@
         </div>
     </div>
     <?php include '../Essential Kits/php/Footer.php'; ?>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="../Essential Kits/js/Navbar.js"></script>
     <?php include 'suggestions.php'; ?>
     <script src="Searchbook-script.js"></script>

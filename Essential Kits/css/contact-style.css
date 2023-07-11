@@ -49,6 +49,7 @@
     outline: none;
     border: 1px solid #aaa;
     border-radius: 5px;
+    color: initial;
 }
 #feedback{
     margin-top: 5px;
@@ -60,6 +61,7 @@
     outline: none;
     border: 1px solid #aaa;
     border-radius: 5px;
+    color: initial;
 }
 .popup .form .form-element input[type="submit"]{
     width: 100%;
@@ -84,4 +86,10 @@
     border: none;
     color: #efefef;
     background: #f55;
+}
+.form-element button:hover {
+    background: hsl(0, 100%, 80%);
+}
+.form-element button:active {
+    background: hsl(0, 50%, 30%);
 }

@@ -38,30 +38,32 @@ document.addEventListener("scroll", function() {
 	}
 });
 
-window.onkeydown = (e) => {
- 	if (e.keyCode == 32) {
-		e.preventDefault();
-		const contentlist = document.querySelector(".sidebar-contentlist").children;
-		const sections = document.querySelector(".main-content").children;
-		let activecontent = document.querySelector(".sidebar-contentlist > .active");
-		let id;
-		for (let i = 0; i < contentlist.length; i++) {
-			if (contentlist[i] == activecontent) {
-				id = i;
-				break;
+document.querySelector('html').onfocus = () => {
+	window.onkeydown = (e) => {
+		if (e.keyCode == 32) {
+			e.preventDefault();
+			const contentlist = document.querySelector(".sidebar-contentlist").children;
+			const sections = document.querySelector(".main-content").children;
+			let activecontent = document.querySelector(".sidebar-contentlist > .active");
+			let id;
+			for (let i = 0; i < contentlist.length; i++) {
+				if (contentlist[i] == activecontent) {
+					id = i;
+					break;
+				}
+			}
+			if (e.shiftKey) {
+				if (id != 0) {
+					document.querySelector('html').scrollTo(0, document.querySelector('html').scrollTop + sections[id-1].getBoundingClientRect().y);
+				}
+			}
+			else {
+				if (id != contentlist.length - 1) {
+					document.querySelector('html').scrollTo(0, document.querySelector('html').scrollTop + sections[id+1].getBoundingClientRect().y);
+				}
 			}
 		}
-		if (e.shiftKey) {
-			if (id != 0) {
-				document.querySelector('html').scrollTo(0, document.querySelector('html').scrollTop + sections[id-1].getBoundingClientRect().y);
-			}
-		}
-		else {
-			if (id != contentlist.length - 1) {
-				document.querySelector('html').scrollTo(0, document.querySelector('html').scrollTop + sections[id+1].getBoundingClientRect().y);
-			}
-		}
- 	}
+	}
 }
 
 let srbi = document.querySelectorAll('.search-results-bookinfo');

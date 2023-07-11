@@ -9,6 +9,7 @@
     <title>CTS Library</title>
     <link rel="stylesheet" href="About-style.css">
     <script src="About-script.js" defer></script>
+	<script src="https://smtpjs.com/v3/smtp.js" defer></script>
     <script src="../Essential Kits/js/Navbar.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
