@@ -74,6 +74,7 @@
 		}
 	?>
     
+	<script src="https://smtpjs.com/v3/smtp.js" defer></script>
 	<script src="../Essential Kits/js/Navbar.js" defer></script>
     <script src="Dashboard-script.js" defer></script>
 	
